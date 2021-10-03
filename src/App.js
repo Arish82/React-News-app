@@ -1,6 +1,6 @@
 import './App.css';
 
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Compnents/Navbar';
 import News from './Compnents/News';
 import {
@@ -8,15 +8,11 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { useState } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 
 export default function App(){
   const [state, setState] = useState({progress: 0})
   const apiKey=process.env.REACT_APP_NEWS_API;
-  // let state={
-  //   progress: 0
-  // }
   let setProgress=(progress)=>{
     setState({
       progress: progress
