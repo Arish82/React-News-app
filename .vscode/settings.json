@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "xtree": "cpp",
+        "unordered_set": "cpp",
+        "iostream": "cpp"
+    }
+}

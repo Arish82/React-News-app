@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { Component }  from 'react'
+import React from 'react'
 import Navbar from './Compnents/Navbar';
 import News from './Compnents/News';
 import {
@@ -8,46 +8,41 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Spinner from './Compnents/Spinner';
+import { useState } from 'react';
+import LoadingBar from 'react-top-loading-bar';
 
-export default class App extends Component {
-  render() {
+export default function App(){
+  const [state, setState] = useState({progress: 0})
+  const apiKey=process.env.REACT_APP_NEWS_API;
+  // let state={
+  //   progress: 0
+  // }
+  let setProgress=(progress)=>{
+    setState({
+      progress: progress
+    })
+  }
     return (
       <div>
         <Router>
-          <Navbar/>
-          <Switch>
-            <Route path="/">
-              <News pageSize={15} country="in" category="general" />
-            </Route>
-            {/* <Route path="/b">
-              <Spinner/>
-            </Route> */}
-            <Route exact path="/business">
-              <News pageSize={15} country="in" category="business" />
-            </Route>
-            <Route path="/entertainment">
-              <News pageSize={15} country="in" category="entertainment" />
-            </Route>
-            <Route path="/general">
-              <News pageSize={15} country="in" category="general" />
-            </Route>
-            <Route path="/health">
-              <News pageSize={15} country="in" category="health" />
-            </Route>
-            <Route path="/science">
-              <News pageSize={15} country="in" category="science" />
-            </Route>
-            <Route path="/sports">
-              <News pageSize={15} country="in" category="sports" />
-            </Route>
-            <Route path="/technology">
-              <News pageSize={15} country="in" category="technology" />
-            </Route>
-          </Switch>
+        <LoadingBar
+          height={3}
+          color='#f11946'
+          progress={state.progress}
+        />
+        <Navbar/> 
+        <Switch>
+          <Route exact path="/"><News setProgress={setProgress} apiKey={ apiKey} key="general" pageSize={5} country="in" category="general"/></Route> 
+          <Route exact path="/business"><News setProgress={setProgress} apiKey={ apiKey} key="business" pageSize={5} country="in" category="business"/></Route> 
+          <Route exact path="/entertainment"><News setProgress={setProgress} apiKey={ apiKey} key="entertainment" pageSize={5} country="in" category="entertainment"/></Route> 
+          <Route exact path="/general"><News setProgress={setProgress} apiKey={ apiKey} key="general" pageSize={5} country="in" category="general"/></Route> 
+          <Route exact path="/health"><News setProgress={setProgress} apiKey={ apiKey} key="health" pageSize={5} country="in" category="health"/></Route> 
+          <Route exact path="/science"><News setProgress={setProgress} apiKey={ apiKey} key="science" pageSize={5} country="in" category="science"/></Route> 
+          <Route exact path="/sports"><News setProgress={setProgress} apiKey={ apiKey} key="sports" pageSize={5} country="in" category="sports"/></Route> 
+          <Route exact path="/technology"><News setProgress={setProgress} apiKey={ apiKey} key="technology" pageSize={5} country="in" category="technology"/></Route> 
+        </Switch>
         </Router>
-      </div>
+      </div> 
     )
-  }
 }
 

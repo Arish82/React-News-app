@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-const Spinner= ()=>{
-    return (
-        <div className="text-center">
-            <img style={{width: "10%"}} src="https://i.gifer.com/74H8.gif" alt="" />
-        </div>
-    )
+export default function Spinner(){
+        return (
+            <div className="text-center">
+                <img className="my-3" style={{width: "5%"}} src="https://aquamarineexotic.com/adminpanel/assets/images/ajax-spinner.gif" alt="" />
+            </div>
+        )
 }
-
-export default Spinner;
-
