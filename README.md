@@ -1,5 +1,5 @@
 # ReactJS based News App
-![alt text](./public/React News App.png)
+![alt text](https://github.com/Arish82/React-News-app/blob/master/public/React%20News%20App.png?raw=true)
 
 # Getting Started with Create React App
 
