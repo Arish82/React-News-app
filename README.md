@@ -1,5 +1,5 @@
 # ReactJS based News App
-![alt text](https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg)
+![alt text](./public/React News App.png)
 
 # Getting Started with Create React App
 
